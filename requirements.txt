@@ -5,3 +5,4 @@ python-dotenv==1.0.1
 Flask-SocketIO==5.3.6
 gevent-websocket==0.10.1
 gunicorn
+eventlet
