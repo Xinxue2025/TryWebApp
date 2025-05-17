@@ -1,0 +1,240 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-controls button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.game-controls button:hover {
+    background-color: #45a049;
+}
+
+/* Game Area Styles */
+.game-area {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    height: calc(100vh - 100px);
+}
+
+/* Player Avatars */
+.player-avatars {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.player-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.player-avatar:hover {
+    transform: scale(1.1);
+}
+
+/* Action Log */
+.action-log {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.log-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.host-message {
+    background-color: #f1f1f1;
+}
+
+.player-message {
+    background-color: #e3f2fd;
+}
+
+.wolf-message {
+    background-color: #ffebee;
+}
+
+.witch-message {
+    background-color: #f3e5f5;
+}
+
+/* Player Controls */
+.player-controls {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-area {
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-group button:hover {
+    background-color: #1976D2;
+}
+
+/* Witch Controls */
+.witch-controls {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #f3e5f5;
+    border-radius: 4px;
+}
+
+.potion-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.potion-controls button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #9c27b0;
+    color: white;
+    cursor: pointer;
+}
+
+.potion-controls button:hover {
+    background-color: #7b1fa2;
+}
+
+.potion-status {
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+}
+
+/* Player Info */
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.coins {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.role-info {
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+    }
+
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .game-controls {
+        display: flex;
+        gap: 10px;
+    }
+
+    .game-controls button {
+        margin: 0;
+    }
+
+    .player-controls {
+        padding: 10px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}

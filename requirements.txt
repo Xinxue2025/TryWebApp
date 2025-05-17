@@ -1,0 +1,6 @@
+Flask==3.0.2
+openai==1.12.0
+Pillow==10.2.0
+python-dotenv==1.0.1
+Flask-SocketIO==5.3.6
+gevent-websocket==0.10.1

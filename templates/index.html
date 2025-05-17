@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werewolf Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Game Header -->
+        <header class="game-header">
+            <h1>Werewolf Game</h1>
+            <div class="game-controls">
+                <button id="startGame">Start Game</button>
+                <button id="quitGame">Quit Game</button>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <div class="game-area">
+            <!-- Player Avatars -->
+            <div class="player-avatars">
+                <div class="avatar-container">
+                    <!-- Player avatars will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Action Log -->
+            <div class="action-log">
+                <div class="log-container">
+                    <!-- Game messages will be added here -->
+                </div>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="player-controls">
+                <div class="input-area">
+                    <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+                    <div class="button-group">
+                        <button id="submitMessage">Submit</button>
+                        <button id="aiReply">AI Reply (1 coin)</button>
+                    </div>
+                </div>
+
+                <!-- Witch Controls -->
+                <div class="witch-controls" style="display: none;">
+                    <div class="potion-controls">
+                        <button id="healButton">Heal</button>
+                        <button id="notHealButton">Not Heal</button>
+                        <button id="poisonButton">Poison</button>
+                        <button id="notPoisonButton">Not Poison</button>
+                    </div>
+                    <div class="potion-status">
+                        <span id="healingPotion">Healing: 1</span>
+                        <span id="poisonPotion">Poison: 1</span>
+                    </div>
+                </div>
+
+                <!-- Player Info -->
+                <div class="player-info">
+                    <div class="coins">
+                        <span>🪙</span>
+                        <span id="coinCount">Coins: 1</span>
+                    </div>
+                    <div class="role-info">
+                        <p>Your role: <span id="playerRole">Witch</span></p>
+                        <p>Your name: <span id="playerName">Player6</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
