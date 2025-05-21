@@ -24,7 +24,7 @@ if not os.getenv("OPENAI_API_KEY"):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='eventlet')
 
 # Game state
 roles_list = ["Villager", "Villager", "Villager", "Hunter", "Seer", "Wolf", "Wolf", "Wolf", "Witch"]
