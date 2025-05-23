@@ -214,11 +214,16 @@ def next_player_speak():
     alive_players = game_state['alive_players']
     if idx < len(alive_players):
         speaker = alive_players[idx]
+        agent = game_state['agents'][int(speaker.replace("Player", "")) - 1]
         if speaker == "Player6":
             socketio.emit('day_speak_prompt', {'player': 'Player6'})
             # 等待前端 player_speak
         else:
-            agent = game_state['agents'][int(speaker.replace("Player", "")) - 1]
+            if agent is None:
+                print(f"Agent for {speaker} is None, skipping.")
+                game_state['day_speaker_index'] = idx + 1
+                Thread(target=next_player_speak).start()
+                return
             alive_players_str = ", ".join(alive_players)
             # 角色定制prompt
             if agent.role == "Wolf":
@@ -236,6 +241,7 @@ def next_player_speak():
             Thread(target=next_player_speak).start()
     else:
         Thread(target=run_voting_phase).start()
+        
 
 def run_voting_phase():
     alive_players = [p for p, status in game_state['player_status'].items() if status == "alive"]
