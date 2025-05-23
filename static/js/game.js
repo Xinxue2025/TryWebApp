@@ -129,6 +129,19 @@ socket.on('witch_poison_prompt', (data) => {
     addMessage('Do you want to use poison tonight?', 'host');
 });
 
+socket.on('day_speak_prompt', (data) => {
+    if (data.player === 'Player6') {
+        addMessage('Your Turn to Speak', 'host');
+        messageInput.disabled = false;
+        submitMessageBtn.disabled = false;
+        aiReplyBtn.disabled = false;
+    } else {
+        addMessage(`Turn to ${data.player} Speak...`, 'host');
+        messageInput.disabled = true;
+        submitMessageBtn.disabled = true;
+        aiReplyBtn.disabled = true;
+    }
+});
 // Button event handlers
 startGameBtn.addEventListener('click', () => {
     socket.emit('start_game');
