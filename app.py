@@ -307,7 +307,6 @@ def handle_player_speak(data):
 
 @socketio.on('ai_reply_request')
 def handle_ai_reply_request():
-    # 让 Player6 的 agent 生成一句发言
     agent = game_state['agents'][5]  # Player6
     if agent is not None:
         alive_players = [p for p, status in game_state['player_status'].items() if status == "alive"]
@@ -317,9 +316,9 @@ def handle_ai_reply_request():
         except Exception as e:
             print(f"AI reply error: {e}")
             ai_message = "I'm having trouble thinking right now..."
-        socketio.emit('player_message', {'player_id': 'Player6', 'message': ai_message})
+        emit('ai_reply_result', {'message': ai_message})  # Only emit to the requesting client
     else:
-        socketio.emit('player_message', {'player_id': 'Player6', 'message': "AI agent is not available."})
+        emit('ai_reply_result', {'message': "AI agent is not available."})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
