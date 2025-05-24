@@ -142,6 +142,11 @@ socket.on('day_speak_prompt', (data) => {
         aiReplyBtn.disabled = true;
     }
 });
+
+socket.on('ai_reply_result', (data) => {
+    messageInput.value = data.message;
+});
+
 // Button event handlers
 startGameBtn.addEventListener('click', () => {
     socket.emit('start_game');
